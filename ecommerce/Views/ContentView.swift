@@ -13,6 +13,7 @@ struct ContentView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date,order:.reverse)]) var products:FetchedResults<Product>
     
     @State private var showingAddView = false
+    @State private var showingCart = false
     @State private var showingAlert = false
     
     
@@ -24,15 +25,27 @@ struct ContentView: View {
                
                 List{
                     ForEach(products){ product in
-                        HStack{
-                            NavigationLink(destination:EditProduct(product:product) ){
-                                Text("Edit")
-                            }
-                            Spacer()
-                            Text(product.name!).bold()
-                            Spacer()
-                            NavigationLink(destination:ProductDetails(product:product) ){
-                                Text("Add")
+                        NavigationLink(destination:ProductDetails(product:product) ){
+                            HStack{
+    //                            NavigationLink(destination:EditProduct(product:product) ){
+    //                                Text("Edit")
+    //                            }
+                               
+                                VStack(alignment:.leading){
+                                    Text("\(product.name!) ").bold()
+                                    Text("\(String(format: "%.2f", product.price)) Taka")
+                                    Text("SKU : \(product.sku!) ")
+                                }
+                                Spacer()
+                                if product.incart>0{
+                                    HStack{
+                                        Text("\(product.incart)")
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                                
+                                Spacer()
+                               
                             }
                         }
 
@@ -48,8 +61,18 @@ struct ContentView: View {
                             Label("Add Product",systemImage: "plus.circle")
                         }
                     }
+                    ToolbarItem(placement: .navigationBarTrailing ){
+                        Button{
+                            showingCart.toggle();
+                        } label: {
+                            Label("Cart",systemImage: "cart")
+                        }
+                    }
                 }.sheet(isPresented: $showingAddView){
                     AddProduct()
+                }
+                .sheet(isPresented: $showingCart){
+                    CheckOut()
                 }
         }.navigationViewStyle(.stack).alert("Important message", isPresented: $showingAlert) {
             Button("OK", role: .cancel) { }

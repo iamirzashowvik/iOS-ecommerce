@@ -21,7 +21,16 @@ struct AddProduct: View {
     var body: some View {
         Form{
             Section{
-                Text("Product Info")
+                HStack{
+                    Text("Add a new product")
+                    Spacer()
+                    Button(action: {
+                        dismiss()
+                    }, label: {Image(systemName: "arrow.backward")}).onTapGesture {
+                        dismiss();
+                    }
+                }
+              
                 TextField("Name",text: $name);
                 TextField("SKU",text: $sku);
                 TextField("Price", value: $price, formatter: doubleFormatter)

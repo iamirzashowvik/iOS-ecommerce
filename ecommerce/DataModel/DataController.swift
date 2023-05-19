@@ -1,9 +1,4 @@
-//
-//  DataController.swift
-//  ecommerce
-//
-//  Created by Mirza Showvik on 19/5/23.
-//
+
 
 import Foundation
 import CoreData
@@ -51,11 +46,8 @@ class DataController : ObservableObject{
         save(context: context)
     }
     
-    func editProduct(name:String, price:Float, sku:String, quantity:Int16, context:NSManagedObjectContext,product:Product){
-        product.name=name
-        product.price=price
-        product.quantity=quantity
-        product.sku=sku
+    func addToCart(incart:Int16, context:NSManagedObjectContext,product:Product){
+        product.incart=incart
         product.date=Date()
         save(context: context)
     }

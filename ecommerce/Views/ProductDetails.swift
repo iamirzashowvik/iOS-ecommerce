@@ -1,10 +1,3 @@
-//
-//  ProductDetails.swift
-//  ecommerce
-//
-//  Created by Mirza Showvik on 19/5/23.
-//
-
 import SwiftUI
 
 struct ProductDetails: View {
@@ -13,13 +6,19 @@ struct ProductDetails: View {
         @Environment(\.dismiss) var dismiss
         
         
-        
+    
         var product:FetchedResults<Product>.Element
-        @State private var name=""
-        @State private var price: Float = 0.0
-        @State private var sku=""
-        @State private var quantity:Int16=0
+    
         
+        
+        @State private var name = ""
+        @State private var price : Float = 0.0
+        @State private var sku = ""
+        @State private var quantity : Int16 = 0
+    
+    
+    
+    @State private var incart:Int16=1
         
         var body: some View {
             Form{
@@ -30,6 +29,7 @@ struct ProductDetails: View {
                         price = product.price;
                         sku = product.sku ?? "ss";
                         quantity = product.quantity;
+                        incart = product.incart
                     };
                     TextField("SKU",text: $sku).disabled(true);
                     TextField("Price", value: $price, formatter: doubleFormatter)
@@ -37,16 +37,23 @@ struct ProductDetails: View {
                     TextField("Quantity", value: $quantity, formatter: intFormatter)
                         .keyboardType(.decimalPad).disabled(true);
                 }
-                HStack{
-                    Spacer()
-                    Button(
-                        "Add To Cart"){
-//                            DataController().editProduct(name: name, price: price, sku: sku, quantity: Int16(quantity), context: managedObject, product: product);
-                            dismiss();
+                Button(
+                    "-"){
+                        if(self.incart==0){
+                            return;
                         }
-                    Spacer()
-                    
-                }
+                        self.incart -= 1
+                    }
+                Text("\(incart)")
+                Button(
+                    "+"){
+                        self.incart += 1
+                    }
+                Button(
+                    "Add To Cart"){
+                        DataController().addToCart(incart: Int16(incart), context: managedObject, product: product);
+                        dismiss();
+                    }
             }
         }
         let intFormatter: NumberFormatter = {

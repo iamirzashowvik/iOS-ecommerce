@@ -18,6 +18,7 @@
 		C1183F652A17C62C0076B12E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1183F642A17C62C0076B12E /* Alert.swift */; };
 		C1183F672A17CB2D0076B12E /* EditProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1183F662A17CB2D0076B12E /* EditProduct.swift */; };
 		C1183F692A17D5530076B12E /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1183F682A17D5530076B12E /* ProductDetails.swift */; };
+		C1183F6E2A17E44D0076B12E /* CheckOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1183F6D2A17E44D0076B12E /* CheckOut.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		C1183F642A17C62C0076B12E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C1183F662A17CB2D0076B12E /* EditProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProduct.swift; sourceTree = "<group>"; };
 		C1183F682A17D5530076B12E /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
+		C1183F6D2A17E44D0076B12E /* CheckOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOut.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				C1183F602A17B0030076B12E /* AddProduct.swift */,
 				C1183F662A17CB2D0076B12E /* EditProduct.swift */,
 				C1183F682A17D5530076B12E /* ProductDetails.swift */,
+				C1183F6D2A17E44D0076B12E /* CheckOut.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				C1183F5A2A17A9A90076B12E /* ProductModel.xcdatamodeld in Sources */,
 				C1183F692A17D5530076B12E /* ProductDetails.swift in Sources */,
 				C1183F5C2A17AABB0076B12E /* DataController.swift in Sources */,
+				C1183F6E2A17E44D0076B12E /* CheckOut.swift in Sources */,
 				C1183F4C2A17A93D0076B12E /* ContentView.swift in Sources */,
 				C1183F672A17CB2D0076B12E /* EditProduct.swift in Sources */,
 				C1183F612A17B0030076B12E /* AddProduct.swift in Sources */,

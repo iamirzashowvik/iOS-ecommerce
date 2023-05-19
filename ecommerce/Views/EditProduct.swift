@@ -40,7 +40,7 @@ struct EditProduct: View {
                 Spacer()
                 Button(
                     "Save"){
-                        DataController().editProduct(name: name, price: price, sku: sku, quantity: Int16(quantity), context: managedObject, product: product);
+//                        DataController().editProduct(name: name, price: price, sku: sku, quantity: Int16(quantity), context: managedObject, product: product);
                         dismiss();
                     }
                 Spacer()
