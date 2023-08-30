@@ -51,7 +51,7 @@ struct ContentView: View {
 
                     }.onDelete(perform: deleteProduct)
                 }
-
+// update
             }.navigationTitle("E-commerce")
                 .toolbar{
                     ToolbarItem(placement: .navigationBarTrailing ){
