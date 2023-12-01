@@ -11,52 +11,49 @@ struct EditProduct: View {
     @Environment(\.managedObjectContext) var managedObject
     @Environment(\.dismiss) var dismiss
     
-    
-    
-    var product:FetchedResults<Product>.Element
-    @State private var name=""
+    var product: FetchedResults<Product>.Element
+    @State private var name = ""
     @State private var price: Float = 0.0
-    @State private var sku=""
-    @State private var quantity:Int16=0
-    
+    @State private var sku = ""
+    @State private var quantity: Int16 = 0
     
     var body: some View {
-        Form{
-            Section{
+        Form {
+            Section {
                 Text("Product Info")
-                TextField("Name",text: $name).onAppear{
-                    name = product.name!;
-                    price = product.price;
-                    sku = product.sku ?? "ss";
-                    quantity = product.quantity;
-                };
-                TextField("SKU",text: $sku);
+                TextField("Name", text: $name).onAppear {
+                    name = product.name!
+                    price = product.price
+                    sku = product.sku ?? "ss"
+                    quantity = product.quantity
+                }
+                TextField("SKU", text: $sku)
                 TextField("Price", value: $price, formatter: doubleFormatter)
-                    .keyboardType(.decimalPad);
+                    .keyboardType(.decimalPad)
                 TextField("Quantity", value: $quantity, formatter: intFormatter)
-                    .keyboardType(.decimalPad);
+                    .keyboardType(.decimalPad)
             }
-            HStack{
+            HStack {
                 Spacer()
                 Button(
-                    "Save"){
-                        dismiss();
-                    }
+                    "Save")
+                {
+                    dismiss()
+                }
                 Spacer()
-                
             }
         }
     }
+
     let intFormatter: NumberFormatter = {
-              let formatter = NumberFormatter()
+        let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-              return formatter
-         }()
+        return formatter
+    }()
+
     let doubleFormatter: NumberFormatter = {
-              let formatter = NumberFormatter()
+        let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-              return formatter
-         }()
+        return formatter
+    }()
 }
-
-

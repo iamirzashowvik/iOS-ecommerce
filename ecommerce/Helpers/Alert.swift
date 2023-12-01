@@ -9,13 +9,13 @@ import Foundation
 
 class AlertClassX {
     static let showAlertMsg = Notification.Name("ALERT_MSG")
-    
+
     init() {
         doCalculations() // simulate showing the alert in 2 secs
     }
-    
+
     func doCalculations() {
-        //.... do calculations
+        // .... do calculations
         // then send a message to show the alert in the Views "listening" for it
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             NotificationCenter.default.post(name: AlertClassX.showAlertMsg, object: nil)
